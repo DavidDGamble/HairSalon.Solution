@@ -1,0 +1,35 @@
+@{
+  Layout = "_Layout";
+}
+@using HairSalon.Models
+
+<div class="row">
+  <div class="col-6">
+    <h1 class="text-center">Stylists</h1>
+
+    @if (Model.Count == 0)
+    {
+      <p>No stylist have been added yet!</p>
+    }
+    else 
+    {
+      <ul class="list-group mt-4">
+        @foreach (Stylist stylist in Model)
+        {
+          <li class="list-group-item text-center w-75 m-auto">@Html.ActionLink($"{stylist.Name}", "Details", new { id = stylist.StylistId })</li>
+        }
+      </ul>
+    }
+    <div class="w-50 m-auto mt-3">
+      <a class="button btn btn-info" href="/stylists/create">Add new Stylist</a>
+    </div>
+  </div>
+  <div class="col-6">
+    <form action="/clients/details" method="get">
+        <label class="form-label" for="search">Search for a client:</label>
+        <input class="form-control" type="text" name="search" id="search">
+        <br>
+        <button class="form-control btn btn-success" type="submit">Search</button>
+      </form>
+  </div>
+</div>

@@ -13,7 +13,6 @@ namespace HairSalon
 
       builder.Services.AddControllersWithViews();
 
-      // Used with ProjectNameContext.cs in Models
       builder.Services.AddDbContext<HairSalonContext>( 
                         dbContextOptions => dbContextOptions
                           .UseMySql(

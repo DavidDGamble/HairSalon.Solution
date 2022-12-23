@@ -2,6 +2,10 @@
   Layout = "_Layout";
 }
 
-<h1>Welcome to Eau Claire's Salon!</h1>
+<h1 class="text-center">Welcome to Eau Claire's Salon!</h1>
 
-<p>@Html.ActionLink("See all our stylists", "Index", "Stylist")</p>
+<div class="text-center">
+<a class="btn btn-info w-25 mt-3" href="/stylist">See all Stylists</a>
+<br>
+<a class="btn btn-success w-25 mt-3" href="/stylist/create">Add new Stylist</a>
+</div>

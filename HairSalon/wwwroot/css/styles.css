@@ -10,3 +10,14 @@
 #delete {
   color: red;
 }
+
+.button {
+  margin-top: 3%;
+  width: 100%;
+}
+
+.stick {
+  position: fixed;
+  width: 33vw;
+  right: 11vw;
+}

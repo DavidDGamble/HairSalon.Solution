@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+@using HairSalon.Models
+
+@foreach (Client client in Model)
+{
+  <div class="card text-center">
+    <div class="card-body">
+      @foreach (Stylist stylist in @ViewBag.Stylists)
+      {
+        if (@client.StylistId == stylist.StylistId)
+        {
+          <h1 class="card-title"><u>Stylist</u></h1>
+          <h3 class="card-title">@Html.ActionLink($"{@stylist.Name}", "Details", "Stylist", new { id = @stylist.StylistId })</h3>
+        }
+      }
+      <h1 class="card-title"><u>Client</u></h1>
+      <h3 class="card-title">@client.Name</h3>
+      <p class="card-text">@client.Appointment</p>
+      <p class="card-text">@client.Notes</p>
+      <a class="button btn btn-danger w-25" href="/client/@client.ClientId/delete">Delete</a>
+    </div>
+  </div>
+}

@@ -13,6 +13,17 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
+    [HttpGet("/client/details")]
+    public ActionResult Details(string search)
+    {
+      List<Client> foundClients = _db.Clients
+        .Where(client => client.Name.Contains(search))
+        .ToList();
+      List<Stylist> stylists = _db.Stylists.ToList();
+      ViewBag.Stylists = stylists;
+      return View(foundClients);
+    }
+
     [HttpGet("/client/{id}/delete")]
     public ActionResult Delete(int id)
     {

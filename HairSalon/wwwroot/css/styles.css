@@ -6,3 +6,7 @@
 #jumbotron {
   font-size: 300%;
 }
+
+#delete {
+  color: red;
+}

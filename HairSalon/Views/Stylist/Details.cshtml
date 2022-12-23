@@ -1,0 +1,46 @@
+@{
+  Layout = "_Layout";
+}
+@using HairSalon.Models;
+
+<div class="row">
+  <div class="col-6">
+    <h1 class="text-center">@Model.Name</h1>
+
+    @if (@Model.Clients.Count == 0)
+    {
+      <p>No clients have been added yet!</p>
+    }
+    else
+    {
+      @foreach (Client client in Model.Clients)
+      {
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title">@client.Name</h3>
+            <p class="card-text">@client.Appointment</p>
+            <p class="card-text">@client.Notes</p>
+          </div>
+        </div>
+      }
+    }
+  </div>
+  <div class="col-2"></div>
+  <div class="col-4">
+    <div class="form-group">
+      <form action="/client/@Model.StylistId/create" method="post">
+        <label class="form-label" for="Name">Client Name:</label>
+        <input class="form-control" type="text" name="Name" id="Name">
+        <br>
+        <label class="form-label" for="Appointment">Appointment Date/Time:</label>
+        <input class="form-control" type="text" name="Appointment" id="Appointment">
+        <br>
+        <label class="form-label" for="Notes">Notes:</label>
+        <input class="form-control" type="text" name="Notes" id="Notes">
+        <br>
+        <button class="form-control btn btn-success" type="submit">Add A Client</button>
+        <a class="button btn btn-info" href="/stylist">See all stylists</a>
+      </form>
+    </div>
+  </div>
+</div>

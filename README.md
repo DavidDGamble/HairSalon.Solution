@@ -1,41 +1,8 @@
-# Setup for template
-#### Thanks [Robert Bryan](https://github.com/robbryandev) for the rad name replacement code! :pray:
-* _clone CSharpTemplate.Solution repository to desktop_
-* _run npm commands below in CSharpTemplate.Solution replacing [ProjectName] with the project name_
-```
-npm i
-```
-```
-node ./index.js --name [ProjectName] --dest ~/Desktop
-```
-
-* _run dotnet commands below_
-```
-dotnet add package Microsoft.EntityFrameworkCore -v 6.0.0
-```
-```
-dotnet add package Pomelo.EntityFrameworkCore.MySql -v 6.0.0
-```
-
-* _create appsettings.json file in ProjectName folder if using a MySql database_
-```
-{
-  "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=[database_name];uid=[USERNAME];pwd=[PASSWORD];"
-  }
-}
-```
-
-* _[$ dotnet watch run] to run project in developement mode_
-* _[$ dotnet watch run --launch-profile "production"] to run project in production mode._
-
-
-
-# _{Application Name}_
+# _Hair Salon_
 
 #### By: _**David Gamble**_
 
-#### _{Brief description of application}_
+#### _This is a web app for Eau Claire's Salon which allows the user to add/view/delete stylists and clients belonging to the stylists._
 
 ## Technologies Used
 
@@ -48,19 +15,35 @@ dotnet add package Pomelo.EntityFrameworkCore.MySql -v 6.0.0
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This is a web app for Eau Claire's Salon which allows the user to add/view/delete stylists and clients belonging to the stylists.  All of the information is stored in a MySql database which is updated by the user.  The user can add and remove stylists to a list of stylists where they can click the name of a stylist and view thier corresponding clients.  The user can also add and remove clients associated to thier stylist.  The app also contains a search function which allows the user to search the clients and displays the matching clients with their stylists._
 
 ## Setup/Installation Requirements
 
-* _Clone the repository to your desktop from: {Enter the repository url here}_
-* _Run [$ dotnet run] in the {ProjectName} repository in {ProjectName.Solutions}_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+* _Clone the repository to your desktop from: https://github.com/DavidDGamble/HairSalon.Solution.git_
+* _From the MySql workbench, under the Administration tab, click Data Import/Restore under MANAGEMENT_
+* _Under Import Options, choose the Import from Self-Contained File and select the david_gamble.sql file located in the HairSalon directory in HairSalon.Solution_
+* _Under Default Schema to be Imported To, click the New... button and enter hair_salon as the name of schema to create_
+* _At the bottom of Select Database Objects to Import (only available for Project Folders), change the drop down from Dump Structure and Data to Dump Structure Only_
+* _After completing the last 3 steps, click the Start Import buttom located in the bottom right corner_
+* _Create appsettings.json file in Hair Salon directory and add the code below replacing [USERNAME] with your MySql username and [PASSWORD] with your MySql password._
+```
+{
+  "ConnectionStrings": {
+      "DefaultConnection": "Server=localhost;Port=3306;database=hair_salon;uid=[USERNAME];pwd=[PASSWORD];"
+  }
+}
+```
+* _Run the following dotnet commands below in the HairSalon directory to run project_
+```
+dotnet restore
+```
+```
+dotnet watch run
+```
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _No known issues_
 
 ## License
 

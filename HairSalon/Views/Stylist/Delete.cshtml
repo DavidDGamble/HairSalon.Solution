@@ -1,0 +1,10 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2 style="text-align: center;">Are you sure you want to delete <span id="delete">@Model.Name</span>?<h2>
+
+    <form class="text-center" action="/stylist/@Model.StylistId/delete/confirm" method="post">
+      <button class="btn btn-danger" type="submit">Delete Stylist</button>
+      <a class="btn btn-warning" href="/stylist/details/@Model.StylistId">Cancel</a>
+    </form>

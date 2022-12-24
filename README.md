@@ -2,7 +2,7 @@
 
 #### By: _**David Gamble**_
 
-#### _This is a web app for Eau Claire's Salon which allows the user to add/view/delete stylists and clients belonging to the stylists._
+#### _This is a web app for Eau Claire's Salon which allows the user to add/view/edit/delete stylists and clients belonging to the stylists._
 
 ## Technologies Used
 
@@ -15,7 +15,7 @@
 
 ## Description
 
-_This is a web app for Eau Claire's Salon which allows the user to add/view/delete stylists and clients belonging to the stylists.  All of the information is stored in a MySql database which is updated by the user.  The user can add and remove stylists to a list of stylists where they can click the name of a stylist and view thier corresponding clients.  The user can also add and remove clients associated to thier stylist.  The app also contains a search function which allows the user to search the clients and displays the matching clients with their stylists._
+_This is a web app for Eau Claire's Salon which allows the user to add/view/edit/delete stylists and clients belonging to the stylists.  All of the information is stored in a MySql database which is updated by the user.  The user can add and remove stylists to a list of stylists where they can click the name of a stylist and view thier corresponding clients.  The user can also add and remove clients associated to thier stylist.  All of the stylist and clients information can be edited as well.  The app also contains a search function which allows the user to search the clients and displays the matching clients with their stylists._
 
 ## Setup/Installation Requirements
 

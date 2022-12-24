@@ -6,6 +6,8 @@
 <div class="row">
   <div class="col-6">
     <h1 class="text-center">@Model.Name</h1>
+    <h5 class="text-center"><u>Style Type</u></h5>
+    <p class="text-center">@Model.StyleType</p>
 
     @if (@Model.Clients.Count == 0)
     {
@@ -20,7 +22,8 @@
             <h3 class="card-title">@client.Name</h3>
             <p class="card-text">@client.Appointment</p>
             <p class="card-text">@client.Notes</p>
-            <a class="button btn btn-danger w-25" href="/client/@client.ClientId/delete">Delete</a>
+            <a class="btn btn-danger w-25" href="/client/@client.ClientId/delete">Delete</a>
+            <a class="btn btn-warning w-25" href="/client/@client.ClientId/edit">Edit</a>
           </div>
         </div>
       }
@@ -40,6 +43,7 @@
         <input class="form-control" type="text" name="Notes" id="Notes">
         <br>
         <button class="form-control btn btn-success" type="submit">Add A Client</button>
+        <a class="button btn btn-warning" href="/stylist/@Model.StylistId/edit">Edit Stylists</a>
         <a class="button btn btn-info" href="/stylist">See all Stylists</a>
         <a class="button btn btn-danger" href="/stylist/@Model.StylistId/delete">Delete Stylist</a>
       </form>

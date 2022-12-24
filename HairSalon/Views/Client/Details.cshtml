@@ -3,23 +3,38 @@
 }
 @using HairSalon.Models
 
-@foreach (Client client in Model)
+@if (Model.Count == 0)
 {
-  <div class="card text-center">
-    <div class="card-body">
-      @foreach (Stylist stylist in @ViewBag.Stylists)
-      {
-        if (@client.StylistId == stylist.StylistId)
-        {
-          <h1 class="card-title"><u>Stylist</u></h1>
-          <h3 class="card-title">@Html.ActionLink($"{@stylist.Name}", "Details", "Stylist", new { id = @stylist.StylistId })</h3>
-        }
-      }
-      <h1 class="card-title"><u>Client</u></h1>
-      <h3 class="card-title">@client.Name</h3>
-      <p class="card-text">@client.Appointment</p>
-      <p class="card-text">@client.Notes</p>
-      <a class="button btn btn-danger w-25" href="/client/@client.ClientId/delete">Delete</a>
-    </div>
+  <h1 class="text-center">No Clients found!</h1>
+  <div class="text-center">
+    <a class="btn btn-info" href="/stylist">Return to Stylists</a>
   </div>
+}
+else
+{
+  <div class="text-center mb-5">
+    <a class="btn btn-info" href="/stylist">Return to Stylists</a>
+  </div>
+  @foreach (Client client in Model)
+  {
+    <div class="card text-center">
+      <div class="card-body">
+        @foreach (Stylist stylist in @ViewBag.Stylists)
+        {
+          if (@client.StylistId == stylist.StylistId)
+          {
+            <h1 class="card-title"><u>Stylist</u></h1>
+            <h3 class="card-title">@Html.ActionLink($"{@stylist.Name}", "Details", "Stylist", new { id = @stylist.StylistId })
+            </h3>
+          }
+        }
+        <h1 class="card-title"><u>Client</u></h1>
+        <h3 class="card-title">@client.Name</h3>
+        <p class="card-text">@client.Appointment</p>
+        <p class="card-text">@client.Notes</p>
+        <a class="btn btn-danger w-25" href="/client/@client.ClientId/delete">Delete</a>
+            <a class="btn btn-warning w-25" href="/client/@client.ClientId/edit">Edit</a>
+      </div>
+    </div>
+  }
 }

@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 
@@ -31,6 +30,13 @@ namespace HairSalon.Controllers
       return View(thisClient);
     }
 
+    [HttpGet("/client/{id}/edit")]
+    public ActionResult Edit(int id)
+    {
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
+    }
+
     [HttpPost("client/{id}/create")]
     public ActionResult Create(int id, Client client)
     {
@@ -47,6 +53,16 @@ namespace HairSalon.Controllers
       _db.Clients.Remove(thisClient);
       _db.SaveChanges();
       return Redirect($"/stylist/details/{thisClient.StylistId}");
+    }
+
+    [HttpPost("/client/{clientId}/stylist/{stylistId}/edit")]
+    public ActionResult EditConfirm(int clientId, int stylistId, Client client)
+    {
+      client.ClientId = clientId;
+      client.StylistId = stylistId;
+      _db.Clients.Update(client);
+      _db.SaveChanges();
+      return Redirect($"/stylist/details/{stylistId}");
     }
   }
 }

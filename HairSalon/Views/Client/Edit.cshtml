@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1 class="text-center">@Model.Name</h1>
+
+<div class="form-group text-center w-25 m-auto">
+  <form action="/client/@Model.ClientId/stylist/@Model.StylistId/edit" method="post">
+    <label class="form-label" for="Name">Client Name:</label>
+    <input class="form-control" type="text" name="Name" id="Name" value="@Model.Name">
+    <br>
+    <label class="form-label" for="Appointment">Appointment Date/Time:</label>
+    <input class="form-control" type="text" name="Appointment" id="Appointment" value="@Model.Appointment">
+    <br>
+    <label class="form-label" for="Notes">Notes:</label>
+    <input class="form-control" type="text" name="Notes" id="Notes" value="@Model.Notes">
+    <br>
+    <button class="form-control btn btn-success" type="submit">Edit Client</button>
+    <a class="button btn btn-warning" href="/stylist/details/@Model.StylistId">Cancel</a>
+  </form>
+</div>

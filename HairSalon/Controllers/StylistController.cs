@@ -27,8 +27,7 @@ namespace HairSalon.Controllers
     {
       Stylist thisStylist = _db.Stylists
         .Include(stylist => stylist.Clients)
-        .FirstOrDefault(stylist => stylist.StylistId == id);
-// vvvvv----- Check to see if code can be refactored -----vvvvv      
+        .FirstOrDefault(stylist => stylist.StylistId == id);    
       List<Client> dbClients = _db.Clients.ToList();
       thisStylist.Clients = new List<Client> { };
       foreach (Client client in dbClients)
@@ -38,6 +37,13 @@ namespace HairSalon.Controllers
           thisStylist.Clients.Add(client);
         }
       }
+      return View(thisStylist);
+    }
+
+    [HttpGet("/stylist/{id}/edit")]
+    public ActionResult Edit(int id)
+    {
+      Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       return View(thisStylist);
     }
 
@@ -71,6 +77,15 @@ namespace HairSalon.Controllers
       _db.Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return Redirect("/stylist");
+    }
+
+    [HttpPost("/stylist/{id}/edit")]
+    public ActionResult EditConfirm(int id, Stylist stylist)
+    {
+      stylist.StylistId = id;
+      _db.Stylists.Update(stylist);
+      _db.SaveChanges();
+      return Redirect($"/stylist/details/{id}");
     }
   }
 }

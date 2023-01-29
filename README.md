@@ -11,7 +11,6 @@
 * _ASP.NET Core MVC 6_
 * _Entity Framework Core_
 * _MySql_
-* _MS Tests_
 
 ## Description
 
@@ -19,7 +18,10 @@ _This is a web app for Eau Claire's Salon which allows the user to add/view/edit
 
 ## Setup/Installation Requirements
 
-* _Clone the repository to your desktop from: https://github.com/DavidDGamble/HairSalon.Solution.git_
+* _Clone the repository to your desktop from:_ 
+```
+https://github.com/DavidDGamble/HairSalon.Solution.git
+```
 * _From the MySql workbench, under the Administration tab, click Data Import/Restore under MANAGEMENT_
 * _Under Import Options, choose the Import from Self-Contained File and select the david_gamble.sql file located in the HairSalon directory in HairSalon.Solution_
 * _Under Default Schema to be Imported To, click the New... button and enter hair_salon as the name of schema to create_
@@ -33,7 +35,7 @@ _This is a web app for Eau Claire's Salon which allows the user to add/view/edit
   }
 }
 ```
-* _Run the following dotnet commands below in the HairSalon directory to run project_
+* _Run the following dotnet commands in the repository HairSalon to run project_
 ```
 dotnet restore
 ```

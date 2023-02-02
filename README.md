@@ -2,7 +2,7 @@
 
 #### By: _**David Gamble**_
 
-#### _This is a web app for Eau Claire's Salon which allows the user to add/view/edit/delete stylists and clients belonging to the stylists._
+#### _This is a web app for Eau Claire's Salon which allows the user to add/view/edit/delete stylists and clients belonging to the stylists.  The user can also search clients and the results will show clients related to the search and the stylists associated to them._
 
 ## Technologies Used
 
